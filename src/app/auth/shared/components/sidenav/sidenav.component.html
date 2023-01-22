@@ -1,1 +1,24 @@
-<p>sidenav works!</p>
+<mat-nav-list>
+    <div class="logo py-4">
+        <img src="https://res.cloudinary.com/hdsqazxtw/image/upload/f_auto/v1579032128/coder-logo-white_t41xzb.png"
+            alt="">
+    </div>
+    <mat-divider></mat-divider>
+    <h2 matSubheader class="mt-2">AppStudiantes</h2>
+    <a mat-list-item routerLink="/dashboard" routerLinkActive="list-item-active">
+        <mat-icon>home</mat-icon>
+        Dashboard</a>
+    <a mat-list-item routerLink="/alumnos/lista" routerLinkActive="list-item-active">
+        <mat-icon>person</mat-icon>
+        Alumnos</a>
+    <a mat-list-item routerLink="/alumnos/form" routerLinkActive="list-item-active">
+        <mat-icon>person_add</mat-icon>
+        AddAlumnos</a>
+    <a mat-list-item routerLink="/cursos/listado" routerLinkActive="list-item-active">
+        <mat-icon>collections_bookmark</mat-icon>
+        Cursos</a>
+    <a mat-list-item routerLink="/cursos/form" routerLinkActive="list-item-active">
+        <mat-icon>library_add</mat-icon> AddCursos</a>
+    <a mat-list-item routerLink="/inscripciones" routerLinkActive="list-item-active"> <mat-icon>group_add</mat-icon>
+        Inscripcion</a>
+</mat-nav-list>

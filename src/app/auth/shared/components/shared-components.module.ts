@@ -5,6 +5,8 @@ import { WrapperComponent } from './wrapper/wrapper.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { AdminlayoutComponent } from './layouts/adminlayout/adminlayout.component';
 import { AuthlayoutComponent } from './layouts/authlayout/authlayout.component';
+import { MiMaterialModule } from '../module/mi-material.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -17,7 +19,9 @@ import { AuthlayoutComponent } from './layouts/authlayout/authlayout.component';
     AuthlayoutComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MiMaterialModule,
+    RouterModule
   ]
 })
 export class SharedComponentsModule { }

@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./adminlayout.component.css']
 })
 export class AdminlayoutComponent {
+  sideBarOpen = true;
 
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
+  }
 }
