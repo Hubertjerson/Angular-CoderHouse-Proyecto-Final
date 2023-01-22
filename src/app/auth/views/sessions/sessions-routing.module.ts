@@ -13,11 +13,11 @@ const routes: Routes = [
         component:LoginComponent
       },
       {
-        path:'',
+        path:'registro',
         component:RegistroComponent,
       },
       {
-        path:'',
+        path:'404',
         component:NotFoundComponent
       }
     ]

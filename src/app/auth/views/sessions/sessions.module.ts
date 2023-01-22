@@ -5,6 +5,7 @@ import { SessionsRoutingModule } from './sessions-routing.module';
 import { LoginComponent } from './pages/login/login.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { MiMaterialModule } from '../../shared/module/mi-material.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
   ],
   imports: [
     CommonModule,
-    SessionsRoutingModule
+    SessionsRoutingModule,
+    MiMaterialModule
   ]
 })
 export class SessionsModule { }
