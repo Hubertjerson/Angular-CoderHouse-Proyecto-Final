@@ -1,7 +1,10 @@
 export interface Curso{
     id: number;
-    name: string;
-    codigo: string;
-    horario: string;
+    nombreCurso: string;
+    comision: string;
     profesor: string;
+    fechaInicio: Date;
+    fechaFin: Date;
+    inscripcionAbierta: boolean;
+    img: string;
 }
