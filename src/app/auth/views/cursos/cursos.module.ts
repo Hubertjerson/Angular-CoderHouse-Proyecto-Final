@@ -5,6 +5,12 @@ import { CursosRoutingModule } from './cursos-routing.module';
 import { FormularioComponent } from './pages/formulario/formulario.component';
 import { ListaCursosComponent } from './pages/lista-cursos/lista-cursos.component';
 import { EditarCursoComponent } from './pages/editar-curso/editar-curso.component';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { CursosEffects } from './store/cursos.effects';
+import { cursosFeatureKey, reducer } from './store/cursos.reducer';
+import { MiMaterialModule } from '../../shared/module/mi-material.module';
+import { PipeModule } from '../../shared/pipes/pipe.module';
 
 
 @NgModule({
@@ -15,7 +21,11 @@ import { EditarCursoComponent } from './pages/editar-curso/editar-curso.componen
   ],
   imports: [
     CommonModule,
-    CursosRoutingModule
+    CursosRoutingModule,
+    MiMaterialModule,
+    PipeModule,
+    StoreModule.forFeature(cursosFeatureKey, reducer ),
+    EffectsModule.forFeature([CursosEffects])
   ]
 })
 export class CursosModule { }
