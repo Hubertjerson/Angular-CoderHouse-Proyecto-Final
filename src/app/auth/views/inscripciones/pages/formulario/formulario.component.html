@@ -1,1 +1,40 @@
-<p>formulario works!</p>
+<form [formGroup]="formularioInscripcion" (ngSubmit)="guardarInscripcion()">
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Codigo de Inscripcion</mat-label>
+            <input formControlName="codigo" matInput>
+            <mat-error *ngIf="formularioInscripcion.get('name')?.errors?.['required']" [style.font-size]="'x-smaller'">Campo
+                requerido</mat-error>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Select Alumno</mat-label>
+            <mat-select formControlName="alumno">
+                <mat-option *ngFor="let alumno of alumnos" [value]="alumno.id">
+                    {{alumno.id + "-" + alumno.nombre}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Select Curso</mat-label>
+            <mat-select formControlName="curso">
+                <mat-option *ngFor="let curso of cursos" [value]="curso.id">
+                    {{curso.id + "-" + curso.nombreCurso}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Choose date</mat-label>
+            <input formControlName="fecha" matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </div>
+    <button mat-raised-button color="primary">Submit</button>
+</form>
