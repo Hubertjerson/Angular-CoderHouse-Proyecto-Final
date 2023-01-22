@@ -4,6 +4,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { WrapperComponent } from './components/wrapper/wrapper.component';
 import { PublicLayoutComponent } from './components/layout/public-layout/public-layout.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -15,7 +16,8 @@ import { PublicLayoutComponent } from './components/layout/public-layout/public-
     PublicLayoutComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ]
 })
 export class PublicModule { }
