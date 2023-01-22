@@ -1,7 +1,7 @@
 export interface Alumnos{
     id: number;
-    name: string;
-    apellidos: string;
-    edad: number;
-    email: string;
+    nombre: string;
+    apellido: string;
+    dni: number;
+    nameUsuario: string;
 }

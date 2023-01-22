@@ -5,6 +5,5 @@ export interface Curso{
     profesor: string;
     fechaInicio: Date;
     fechaFin: Date;
-    inscripcionAbierta: boolean;
     img: string;
 }

@@ -1,4 +1,4 @@
 export const environments = {
     production: false,
-    apiURL: 'https://62ae1b79b735b6d16a3eee06.mockapi.io/aula'
+    apiURL: 'https://63b1c9850d51f5b2971ee044.mockapi.io'
 }

@@ -1,29 +1,29 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environments } from 'src/environments/environments';
+import { environmentsPROD } from 'src/environments/environments.prod';
 import { Alumnos } from '../model/alumnos';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AlumnosService {
-  private apiURL = environments.apiURL;
+  private apiURL = environmentsPROD.apiURL;
   constructor(
     private http: HttpClient
   ) { }
 
   obtenerAlumnos(): Observable<Alumnos[]>{
-    return this.http.get<Alumnos[]>(`${this.apiURL}/alumno`)
+    return this.http.get<Alumnos[]>(`${this.apiURL}/alumnos`)
   }
 
   agregarAlumno(alumno:Alumnos):Observable<Alumnos>{
-    return this.http.post<Alumnos>(`${this.apiURL}/alumno`, alumno);
+    return this.http.post<Alumnos>(`${this.apiURL}/alumnos`, alumno);
   }
   eliminarAlumno(alumno:Alumnos):Observable<Alumnos>{
-    return this.http.delete<Alumnos>(`${this.apiURL}/alumno/${alumno.id}`);
+    return this.http.delete<Alumnos>(`${this.apiURL}/alumnos/${alumno.id}`);
   }
   editarAlumno(alumno : Alumnos):Observable<Alumnos>{
-    return this.http.put<Alumnos>(`${this.apiURL}/alumno/${alumno.id}`, alumno)
+    return this.http.put<Alumnos>(`${this.apiURL}/alumnos/${alumno.id}`, alumno)
   }
 }

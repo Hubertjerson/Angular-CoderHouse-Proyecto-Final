@@ -17,7 +17,7 @@ import { MiMaterialModule } from '../../shared/module/mi-material.module';
   imports: [
     CommonModule,
     AlumnosRoutingModule,
-    MiMaterialModule
+    MiMaterialModule,
   ]
 })
 export class AlumnosModule { }

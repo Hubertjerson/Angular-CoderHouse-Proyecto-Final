@@ -15,7 +15,7 @@ export class CursosService {
 
   obtenerCursos(): Observable<Curso[]> {
     return this.http
-      .get<Curso[]>(`${this.apiURL}/curso`, {
+      .get<Curso[]>(`${this.apiURL}/cursos`, {
         headers: new HttpHeaders({
           'content-type': 'application/json',
           encoding: 'Utf-8',
@@ -26,7 +26,7 @@ export class CursosService {
 
   obtenerCurso(id: number): Observable<Curso> {
     return this.http
-      .get<Curso>(`${this.apiURL}/curso/${id}`, {
+      .get<Curso>(`${this.apiURL}/cursos/${id}`, {
         headers: new HttpHeaders({
           'content-type': 'application/json',
           encoding: 'Utf-8',
@@ -37,21 +37,21 @@ export class CursosService {
 
   agregarCurso(curso: Curso) {
     this.http
-      .post(`${this.apiURL}/curso`, curso)
+      .post(`${this.apiURL}/cursos`, curso)
       .pipe(catchError(this.manejoError))
       .subscribe();
   }
 
   editarCurso(curso: Curso) {
     this.http
-      .put<Curso>(`${this.apiURL}/curso/${curso.id}`, curso)
+      .put<Curso>(`${this.apiURL}/cursos/${curso.id}`, curso)
       .pipe(catchError(this.manejoError))
       .subscribe();
   }
 
   eliminarCurso(id: number) {
     return this.http
-      .delete<Curso>(`${this.apiURL}/curso/${id}`)
+      .delete<Curso>(`${this.apiURL}/cursos/${id}`)
       .pipe(concatMap(() => this.obtenerCursos()));
   }
 

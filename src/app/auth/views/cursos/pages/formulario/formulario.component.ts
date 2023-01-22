@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { Curso } from '../../model/cursos';
 import { CursosService } from '../../services/cursos.service';
 
@@ -23,7 +24,6 @@ export class FormularioComponent implements OnInit {
       profesor: new FormControl('', [Validators.required]),
       inicio: new FormControl('', [Validators.required]),
       fin: new FormControl('', [Validators.required]),
-      inscripcionAbierta: new FormControl('', [Validators.required]),
       img: new FormControl(),
     });
   }
@@ -36,11 +36,17 @@ export class FormularioComponent implements OnInit {
       fechaInicio: this.formulario.value.inicio,
       fechaFin: this.formulario.value.fin,
       profesor: this.formulario.value.profesor,
-      inscripcionAbierta: this.formulario.value.inscripcionAbierta,
       img: this.formulario.value.img,
     };
 
     this.cursoService.agregarCurso(curso);
-    this.router.navigate(['/courses']);
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Curso Agregado',
+      showConfirmButton: false,
+      timer: 1500,
+    });
+    this.router.navigate(['/cursos']);
   }
 }

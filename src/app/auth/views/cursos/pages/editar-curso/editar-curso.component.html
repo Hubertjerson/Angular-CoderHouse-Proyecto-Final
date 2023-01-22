@@ -1,45 +1,57 @@
-<div class="container-courses ">
-    <div class="row filtro">
-        <mat-form-field class="col-md-6">
-            <mat-label>Filtrar por nombre del curso</mat-label>
-            <input type="text" matInput (keyup)="filtrarCurso($event)" />
-        </mat-form-field>
-        <div class="col-md-6">
-            <a mat-raised-button color="primary" routerLink="/courses/add-course"> Agregar curso</a>
+<form class="container-fluid text-center mt-4" [formGroup]="formulario" (ngSubmit)="editarCurso()">
+    <div class="row general-cont">
+        <div class="col-md-6" align="end">
+            <mat-form-field appearance="fill">
+                <mat-label>Nombre Curso</mat-label>
+                <input matInput formControlName="nombreCurso">
+            </mat-form-field>
         </div>
-    </div>
-    <div class="container-cards-courses">
-        <div class="row cards-courses">
-            <div *ngFor="let curso of cursos$ | async" class="col-md-3">
-                <mat-card class="card-container">
-                    <mat-card-header>
-                        <mat-card-title>{{ curso.nombreCurso }}</mat-card-title>
-                        <mat-card-subtitle>{{ curso.comision }}</mat-card-subtitle>
-                    </mat-card-header>
-
-                    <img mat-card-image [src]="curso.img" alt="cards" />
-
-                    <mat-card-content>
-                        <p>Dictado por {{ curso.profesor }}</p>
-                        <p>Inicia el {{ curso.fechaInicio | date: "dd/MM/YYYY" }}</p>
-                        <p>Finaliza el {{ curso.fechaFin | date: "dd/MM/YYYY" }}</p>
-                    </mat-card-content>
-
-                    <mat-card-actions align="end">
-                        <div>
-                            <button mat-icon-button color="primary" (click)="editarCurso(curso)">
-                                <mat-icon>edit</mat-icon>
-                            </button>
-                            <button mat-icon-button color="warn" (click)="eliminarCurso(curso)">
-                                <mat-icon>delete</mat-icon>
-                            </button>
-                            <button mat-icon-button [routerLink]="'/courses/'+ curso.id">
-                                <mat-icon>visibility</mat-icon>
-                            </button>
-                        </div>
-                    </mat-card-actions>
-                </mat-card>
-            </div>
+        <div class="col-md-6" align="start">
+            <mat-form-field appearance="fill" class="fill">
+                <mat-label>Comision</mat-label>
+                <input matInput formControlName="comision">
+            </mat-form-field>
         </div>
+        <div class="col-md-6" align="end">
+            <mat-form-field appearance="fill" class="fill">
+                <mat-label>Profesor</mat-label>
+                <input matInput formControlName="profesor">
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6" align="start">
+            <mat-form-field appearance="fill" class="fill">
+                <mat-label>Fecha Inicio</mat-label>
+                <input matInput [matDatepicker]="fechaInicio" formControlName="inicio">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="fechaInicio"></mat-datepicker-toggle>
+                <mat-datepicker #fechaInicio></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6" align="end">
+            <mat-form-field appearance="fill" class="fill">
+                <mat-label>Fecha Fin</mat-label>
+                <input matInput [matDatepicker]="fechaFin" formControlName="fin">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="fechaFin"></mat-datepicker-toggle>
+                <mat-datepicker #fechaFin></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+
+        <div class="col-md-6" align="start">
+            <mat-form-field appearance="fill" class="fill">
+                <mat-label>image</mat-label>
+                <input matInput formControlName="img">
+            </mat-form-field>
+        </div>
+
+
+        <div class="col-md-6" align="start">
+            <button type="submit" mat-raised-button color="primary">Guardar Cambios </button>
+        </div>
+
     </div>
-</div>
+
+
+</form>

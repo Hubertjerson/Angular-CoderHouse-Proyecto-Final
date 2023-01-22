@@ -1,60 +1,61 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { map, Observable } from 'rxjs';
-import { CursoState } from '../../model/curso.state';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
+
 import { Curso } from '../../model/cursos';
 import { CursosService } from '../../services/cursos.service';
-import { eliminarCurso, loadCursoss } from '../../store/cursos.actions';
-import { selectCursos } from '../../store/cursos.selectors';
+
 
 @Component({
   selector: 'app-editar-curso',
   templateUrl: './editar-curso.component.html',
   styleUrls: ['./editar-curso.component.css']
 })
-export class EditarCursoComponent implements OnInit, OnDestroy{
+export class EditarCursoComponent implements OnInit {
 
-  cursos$!: Observable<Curso[]>;
+  formulario: FormGroup;
+  id: number;
 
   constructor(
-    private store: Store<CursoState>,
-    private cursosService: CursosService,
+    private activatedRouted: ActivatedRoute,
+    private cursoService: CursosService,
     private router: Router
-  ){}
-
-  ngOnDestroy(): void {
-      
-  }
+  ) { }
 
   ngOnInit(): void {
-    this.cursos$ = this.store.select(selectCursos);
-
-    this.store.dispatch(loadCursoss());
+    this.activatedRouted.paramMap.subscribe((parametros) => {
+      
+      this.id = parseInt(parametros.get('id') || '');
+      this.formulario = new FormGroup({
+        nombreCurso: new FormControl(parametros.get('nombreCurso')),
+        comision: new FormControl(parametros.get('comision')),
+        profesor: new FormControl(parametros.get('profesor')),
+        inicio: new FormControl(parametros.get('fechaInicio')),
+        fin: new FormControl(parametros.get('fechaFin')),
+        img: new FormControl(parametros.get('img')),
+      });
+    });
   }
 
-  editarCurso(curso: Curso) {
-    this.router.navigate(['/courses/edit-course', curso]);
-  }
-
-  eliminarCurso(curso: Curso) {
-    this.store.dispatch(eliminarCurso({ curso }));
-  }
-
-  filtrarCurso(event: Event) {
-    const valorObtenido = (event.target as HTMLInputElement).value;
-
-    /* columna en especifico , filterPredicate lleva dos parametros*/
-    this.cursos$ = this.cursosService
-      .obtenerCursos()
-      .pipe(
-        map((c) =>
-          c.filter((curso) =>
-            curso.nombreCurso
-              .toLocaleLowerCase()
-              .includes(valorObtenido.toLocaleLowerCase())
-          )
-        )
-      );
+  editarCurso() {
+    let c: Curso = {
+      id: this.id,
+      nombreCurso: this.formulario.value.nombreCurso,
+      comision: this.formulario.value.comision,
+      profesor: this.formulario.value.profesor,
+      fechaInicio: this.formulario.value.fechaInicio,
+      fechaFin: this.formulario.value.fechaFin,
+      img: this.formulario.value.img,
+    };
+    this.cursoService.editarCurso(c);
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Los Datos fueron actualizados',
+      showConfirmButton: false,
+      timer: 1500,
+    });
+    this.router.navigate(['/cursos']);
   }
 }

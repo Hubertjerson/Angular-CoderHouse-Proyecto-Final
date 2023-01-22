@@ -14,14 +14,17 @@ export const loadCursossFailure = createAction(
   '[Cursos] Load Cursoss Failure',
   props<{ error: any }>()
 );
+
 export const agregarCurso = createAction(
   '[Cursos] Agregar Curso',
   props<{ curso: Curso}>()
 );
+
 export const editarCurso = createAction(
   '[Cursos] Editar Curso',
   props<{ curso: Curso}>()
 );
+
 export const eliminarCurso = createAction(
   '[Cursos] Eliminar Curso',
   props<{ curso: Curso}>()
