@@ -3,6 +3,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { map, Observable, Subscription } from 'rxjs';
 import Swal from 'sweetalert2';
+import { Sesion } from '../../../sessions/model/sesion';
+import { SesionService } from '../../../sessions/services/sesion.service';
 import { Alumnos } from '../../model/alumnos';
 import { AlumnosService } from '../../services/alumnos.service';
 
@@ -21,8 +23,13 @@ export class AlumnoListaComponent implements OnInit, OnDestroy {
   dataSource: MatTableDataSource<Alumnos>
   displayedColumns: string[] = ['id', 'nombre', 'apellido', 'dni', 'nameUsuario', 'eliminar'];
 
+  sesion$:Observable<Sesion>;
+  subscription: Subscription;
+  sesion: Sesion;
+
   constructor(
     private alumnoService: AlumnosService,
+    private sesionService: SesionService,
     private router: Router
   ) { }
 
@@ -31,6 +38,10 @@ export class AlumnoListaComponent implements OnInit, OnDestroy {
     this.alumnosSubcription = this.alumnos$.subscribe((alumnos: Alumnos[]) => {
       this.alumnos = alumnos
     })
+
+    this.sesion$ = this.sesionService.obtenerDatosSesion();
+    this.subscription = this.sesion$.subscribe(
+      (sesion: Sesion) => (this.sesion = sesion));
 
     this.dataSource = new MatTableDataSource<Alumnos>(this.alumnos);
   }

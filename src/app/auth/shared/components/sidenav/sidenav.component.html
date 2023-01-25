@@ -9,16 +9,18 @@
     <a mat-list-item routerLink="/alumnos" routerLinkActive="list-item-active">
         <mat-icon>person</mat-icon>
         Alumnos</a>
-    <a mat-list-item routerLink="/alumnos/form" routerLinkActive="list-item-active">
+    <a mat-list-item routerLink="/alumnos/form" routerLinkActive="list-item-active" *ngIf="sesion.usuarioActivo?.admin">
         <mat-icon>person_add</mat-icon>
         AddAlumnos</a>
     <a mat-list-item routerLink="/cursos" routerLinkActive="list-item-active">
         <mat-icon>collections_bookmark</mat-icon>
         Cursos</a>
-    <a mat-list-item routerLink="/cursos/form" routerLinkActive="list-item-active">
+    <a mat-list-item routerLink="/cursos/form" routerLinkActive="list-item-active" *ngIf="sesion.usuarioActivo?.admin">
         <mat-icon>library_add</mat-icon> AddCursos</a>
-    <a mat-list-item routerLink="/inscripciones" routerLinkActive="list-item-active"> <mat-icon>group</mat-icon>
+    <a mat-list-item routerLink="/inscripciones" routerLinkActive="list-item-active" >
+        <mat-icon>group</mat-icon>
         Inscripcion</a>
-        <a mat-list-item routerLink="/inscripciones/form" routerLinkActive="list-item-active"> <mat-icon>group_add</mat-icon>
-            ADDInscripcion</a>
+    <a mat-list-item routerLink="/inscripciones/form" routerLinkActive="list-item-active" *ngIf="sesion.usuarioActivo?.admin">
+        <mat-icon>group_add</mat-icon>
+        ADDInscripcion</a>
 </mat-nav-list>
