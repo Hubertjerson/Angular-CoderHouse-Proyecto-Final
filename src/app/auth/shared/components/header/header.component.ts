@@ -14,8 +14,8 @@ export class HeaderComponent {
 
 
   @Output() toggleSidebarForMe: EventEmitter<any> = new EventEmitter();
-  usuario!: Usuario;
-  sesion!: Sesion;
+  usuario: Usuario;
+  sesion: Sesion;
 
   constructor(
     private router: Router
