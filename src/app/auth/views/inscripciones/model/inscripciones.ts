@@ -1,10 +1,21 @@
 import { Alumnos } from "../../alumnos/model/alumnos";
 import { Curso } from '../../cursos/model/cursos';
 
+
+interface inscripAlumno{
+    id:number,
+    nombre:string,
+}
+
+interface inscripCurso{
+    id:number,
+    nombreCurso:string,
+}
+
 export interface Inscripciones {
     id:number;
     codigo:string;
-    alumno:Alumnos;
+    alumno:inscripAlumno;
     fecha:Date;
-    curso:Curso;
+    curso:inscripCurso;
 }

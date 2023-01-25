@@ -21,7 +21,7 @@ export class UsuarioService {
     return this.http.get<Usuario>(`${this.apiURL}/usuarios/${id}`)
   }
 
-  agregarUsuario(usuario: Usuario) {
-    this.http.post(`${this.apiURL}/usuarios`, usuario).subscribe();
+  agregarUsuario(usuario: Usuario): Observable<Usuario> {
+    return this.http.post<Usuario>(`${this.apiURL}/usuarios`, usuario);
   }
 }

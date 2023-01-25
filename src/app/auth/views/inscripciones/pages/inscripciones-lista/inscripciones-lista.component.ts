@@ -24,23 +24,19 @@ export class InscripcionesListaComponent implements OnInit, OnDestroy {
     'curso',
   ];
 
-  dataSource: MatTableDataSource<Inscripciones>;
+  dataSource = new MatTableDataSource<Inscripciones>();
 
   inscripciones: Inscripciones[];
-  inscripcione:Inscripciones;
   InscripcionesSubs:Subscription;
   inscripcion$:Observable<Inscripciones[]>
 
   constructor(
-    private inscripcioneServices: InscripcionesService
+    private inscripcioneServices: InscripcionesService,
   ) {}
 
   ngOnInit(): void {
     this.inscripcion$ = this.inscripcioneServices.obtenerInscripciones();
-    this.InscripcionesSubs = this.inscripcion$.subscribe(
-      (inscripcion: Inscripciones[]) => (this.inscripciones = inscripcion)
-    )
-    this.dataSource = new MatTableDataSource<Inscripciones>(this.inscripciones);
+    this.InscripcionesSubs = this.inscripcion$.subscribe(inscripcion => this.dataSource.data = inscripcion)
   }
 
   ngOnDestroy(): void {

@@ -54,9 +54,13 @@ export class FormularioComponent implements OnInit, OnDestroy {
     this.getCursosList();
     this.formularioInscripcion = new FormGroup({
       codigo: new FormControl('', [Validators.required]),
-      alumno: new FormControl('', [Validators.required]),
+      alumno: new FormGroup({
+        nombre:new FormControl(''),
+      }),
       fecha: new FormControl('', [Validators.required]),
-      curso: new FormControl('', [Validators.required]),
+      curso: new FormGroup({
+        nombreCurso:new FormControl(''),
+      }),
     });
   }
 

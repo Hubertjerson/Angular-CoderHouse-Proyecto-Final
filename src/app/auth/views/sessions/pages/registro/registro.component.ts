@@ -50,8 +50,9 @@ export class RegistroComponent implements OnInit, OnDestroy {
       admin: this.formularioRegister.value.admin,
     };
 
-    this.usuarioService.agregarUsuario(usuario);
-    this.router.navigate(['/sessions/login'])
+    this.usuarioService.agregarUsuario(usuario).subscribe(() => {
+      this.router.navigate(['/sessions/login'])
+    });
   }
 
   validacionRegistro() {
