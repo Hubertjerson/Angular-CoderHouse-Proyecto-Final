@@ -39,7 +39,9 @@ export class FormularioComponent implements OnInit {
       img: this.formulario.value.img,
     };
 
-    this.cursoService.agregarCurso(curso);
+    this.cursoService.agregarCurso(curso).subscribe(() => {
+      this.router.navigate(['/cursos']);
+    });
     Swal.fire({
       position: 'center',
       icon: 'success',
@@ -47,6 +49,5 @@ export class FormularioComponent implements OnInit {
       showConfirmButton: false,
       timer: 1500,
     });
-    this.router.navigate(['/cursos']);
   }
 }

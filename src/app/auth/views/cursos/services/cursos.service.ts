@@ -35,11 +35,8 @@ export class CursosService {
       .pipe(catchError(this.manejoError));
   }
 
-  agregarCurso(curso: Curso) {
-    this.http
-      .post(`${this.apiURL}/cursos`, curso)
-      .pipe(catchError(this.manejoError))
-      .subscribe();
+  agregarCurso(curso: Curso): Observable<Curso> {
+    return this.http.post<Curso>(`${this.apiURL}/cursos`, curso).pipe(catchError(this.manejoError))
   }
 
   editarCurso(curso: Curso) {

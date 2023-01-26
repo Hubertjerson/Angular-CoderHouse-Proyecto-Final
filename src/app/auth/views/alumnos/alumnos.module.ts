@@ -6,6 +6,7 @@ import { FormularioComponent } from './pages/formulario/formulario.component';
 import { AlumnoListaComponent } from './pages/alumno-lista/alumno-lista.component';
 import { EditarAlumnoComponent } from './pages/editar-alumno/editar-alumno.component';
 import { MiMaterialModule } from '../../shared/module/mi-material.module';
+import { PipeModule } from '../../shared/pipes/pipe.module';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { MiMaterialModule } from '../../shared/module/mi-material.module';
     CommonModule,
     AlumnosRoutingModule,
     MiMaterialModule,
+    PipeModule
   ]
 })
 export class AlumnosModule { }

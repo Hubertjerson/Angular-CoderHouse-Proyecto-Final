@@ -34,5 +34,6 @@ export const reducer = createReducer(
   on(CursosActions.eliminarCurso, (state, {curso}) => {
     return state
   }),
+  on(CursosActions.resetCourseState, () => initialState)
 
 );

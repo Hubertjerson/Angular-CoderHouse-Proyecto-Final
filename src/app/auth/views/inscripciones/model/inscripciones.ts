@@ -5,6 +5,7 @@ import { Curso } from '../../cursos/model/cursos';
 interface inscripAlumno{
     id:number,
     nombre:string,
+    apellido:string,
 }
 
 interface inscripCurso{

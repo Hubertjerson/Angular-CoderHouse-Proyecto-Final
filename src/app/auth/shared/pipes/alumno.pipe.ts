@@ -8,7 +8,7 @@ export class AlumnoPipe implements PipeTransform {
 
   transform(value: Alumnos): string{
 
-    return `${value.id} ${value.nombre}` ;
+    return `${value.nombre} ${value.apellido}` ;
   }
 
 }

@@ -21,7 +21,7 @@ export class AlumnoListaComponent implements OnInit, OnDestroy {
   alumnos$!: Observable<Alumnos[]>
 
   dataSource: MatTableDataSource<Alumnos>
-  displayedColumns: string[] = ['id', 'nombre', 'apellido', 'dni', 'nameUsuario', 'eliminar'];
+  displayedColumns: string[] = ['id', 'nombre', 'dni', 'nameUsuario', 'eliminar'];
 
   sesion$:Observable<Sesion>;
   subscription: Subscription;
@@ -73,6 +73,7 @@ export class AlumnoListaComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.alumnosSubcription.unsubscribe()
+    this.alumnosSubcription.unsubscribe();
+    this.subscription.unsubscribe();
   }
 }
