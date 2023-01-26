@@ -11,6 +11,16 @@
 <p style="font-size:17px; font-weight:bold">
 - Al momento de registrarse en nuestro sistema recuerda seleccionar si deseas ser ADMIN en nuestro sistema.<br/>
 - Para que el Usuario pueda agregar un alumno , curso o inscribirse en un curso , debera ser Administrador.<br/>
+<h1 style="font-weight:bold;">USUARIOS AGREGADOS QUE PUEDE USAR</h1>
+<p style="font-size:17px; font-weight:bold">
+- ADMIN {
+    "usuario": "probando3@gmail.com",
+    "contrasena": "123456",
+} <br>
+- PUBLIC {
+    "usuario": "Trinity_Greenholt89@gmail.com",
+    "contrasena": "J2n2cR9LzrMv8Nw",
+}
 
 <h1 style="font-weight:bold;">Tecnologias y Librerias</h1>
 <p style="font-size:17px; font-weight:bold">
