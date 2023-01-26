@@ -2,6 +2,6 @@ import { Usuario } from "./usuario";
 
 
 export interface Sesion {
-    sesionActiva: boolean;
+    sesionActiva: boolean,
     usuarioActivo?: Usuario;
 }

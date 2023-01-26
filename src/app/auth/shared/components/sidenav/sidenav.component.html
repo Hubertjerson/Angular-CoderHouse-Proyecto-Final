@@ -16,11 +16,13 @@
         <mat-icon>collections_bookmark</mat-icon>
         Cursos</a>
     <a mat-list-item routerLink="/cursos/form" routerLinkActive="list-item-active" *ngIf="sesion.usuarioActivo?.admin">
-        <mat-icon>library_add</mat-icon> AddCursos</a>
-    <a mat-list-item routerLink="/inscripciones" routerLinkActive="list-item-active" >
+        <mat-icon>library_add</mat-icon>
+        AddCursos</a>
+    <a mat-list-item routerLink="/inscripciones" routerLinkActive="list-item-active">
         <mat-icon>group</mat-icon>
         Inscripcion</a>
-    <a mat-list-item routerLink="/inscripciones/form" routerLinkActive="list-item-active" *ngIf="sesion.usuarioActivo?.admin">
+    <a mat-list-item routerLink="/inscripciones/form" routerLinkActive="list-item-active"
+        *ngIf="sesion.usuarioActivo?.admin">
         <mat-icon>group_add</mat-icon>
         ADDInscripcion</a>
 </mat-nav-list>

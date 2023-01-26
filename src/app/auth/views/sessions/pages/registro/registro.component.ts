@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
+import Swal from 'sweetalert2';
 import { Usuario } from '../../model/usuario';
 import { UsuarioService } from '../../services/usuario.service';
 
@@ -26,6 +27,8 @@ export class RegistroComponent implements OnInit, OnDestroy {
       usuario: new FormControl('', [Validators.email, Validators.required]),
       contrasena: new FormControl('', [Validators.minLength(6), Validators.required,]),
       admin: new FormControl(),
+      nombre: new FormControl(''),
+      img: new FormControl(''),
     });
   }
 
@@ -48,6 +51,8 @@ export class RegistroComponent implements OnInit, OnDestroy {
       usuario: this.formularioRegister.value.usuario,
       contrasena: this.formularioRegister.value.contrasena,
       admin: this.formularioRegister.value.admin,
+      nombre: this.formularioRegister.value.nombre,
+      img:this.formularioRegister.value.img
     };
 
     this.usuarioService.agregarUsuario(usuario).subscribe(() => {
@@ -63,8 +68,21 @@ export class RegistroComponent implements OnInit, OnDestroy {
     );
     if (encontrarUsuario === undefined) {
       this.agregarUsuario();
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Se Agrego un nuevo Usuario',
+        showConfirmButton: false,
+        timer: 1500,
+      });
     } else {
-      alert('el usuario ya existe');
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Lo sentimos el Usuario ya se encuentra registrado',
+        showConfirmButton: false,
+        timer: 1500,
+      });
     }
   }
 }

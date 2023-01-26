@@ -16,7 +16,7 @@ export class SesionService {
     this.sesionSubject = new BehaviorSubject(sesion);
   }
 
-  login(usuario: string, contrasena: string, admin: boolean, id: number) {
+  login(usuario: string, contrasena: string, admin: boolean, id: number, nombre: string, img: string) {
     const sesion: Sesion = {
       sesionActiva: true,
       usuarioActivo: {
@@ -24,6 +24,8 @@ export class SesionService {
         usuario: usuario,
         contrasena: contrasena,
         admin: admin,
+        nombre:nombre,
+        img:img
       },
     };
     this.sesionSubject.next(sesion);
@@ -31,5 +33,9 @@ export class SesionService {
 
   obtenerDatosSesion(): Observable<Sesion> {
     return this.sesionSubject.asObservable();
+  }
+
+  clearToken(){
+    return sessionStorage.setItem("token",'')
   }
 }

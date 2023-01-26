@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { Sesion } from 'src/app/auth/views/sessions/model/sesion';
+import { Usuario } from 'src/app/auth/views/sessions/model/usuario';
 import { SesionService } from 'src/app/auth/views/sessions/services/sesion.service';
 
 @Component({
@@ -10,14 +10,13 @@ import { SesionService } from 'src/app/auth/views/sessions/services/sesion.servi
   styleUrls: ['./sidenav.component.css']
 })
 export class SidenavComponent implements OnInit, OnDestroy{
-
+  usuario!: Usuario;
   sesion$:Observable<Sesion>;
   subscription: Subscription;
   sesion: Sesion;
 
   constructor(
     private sesionService: SesionService,
-    private router: Router
   ){}
 
   ngOnInit(): void {

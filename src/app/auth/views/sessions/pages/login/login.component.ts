@@ -58,7 +58,9 @@ export class LoginComponent implements OnInit, OnDestroy{
           encontrarUsuario.usuario,
           encontrarUsuario.contrasena,
           encontrarUsuario.admin,
-          encontrarUsuario.id
+          encontrarUsuario.id,
+          encontrarUsuario.nombre,
+          encontrarUsuario.img
         );
         this.router.navigate(['/alumnos']);
       } else {
