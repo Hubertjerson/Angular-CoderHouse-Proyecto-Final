@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable } from 'rxjs';
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 
 import { CursosEffects } from './cursos.effects';
 
@@ -10,6 +11,9 @@ describe('CursosEffects', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [
+        HttpClientTestingModule
+      ],
       providers: [
         CursosEffects,
         provideMockActions(() => actions$)

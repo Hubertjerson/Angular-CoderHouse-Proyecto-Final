@@ -9,6 +9,7 @@ import { Alumnos } from '../model/alumnos';
 })
 export class AlumnosService {
   private apiURL = environmentsPROD.apiURL;
+
   constructor(
     private http: HttpClient
   ) { }
@@ -25,6 +26,10 @@ export class AlumnosService {
   }
   editarAlumno(alumno : Alumnos):Observable<Alumnos>{
     return this.http.put<Alumnos>(`${this.apiURL}/alumnos/${alumno.id}`, alumno).pipe(catchError(this.manejoError));
+  }
+  /*TESTING */
+  testingAlumnos(){
+    return this.http.get<Alumnos[]>(`${this.apiURL}/alumnos`)
   }
 
   private manejoError(error: HttpErrorResponse) {

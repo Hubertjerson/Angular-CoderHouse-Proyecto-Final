@@ -58,4 +58,12 @@ export class FormularioComponent implements OnInit, OnDestroy{
     this.alumnoSubcription.unsubscribe();
   }
 
+    /*FUNCION PARA EL TESTING*/
+    createProduct() {
+      if (this.alumnosFormulario.valid) {
+        this.alumnoService.agregarAlumno(this.alumnosFormulario.value);
+      } else {
+        alert('El formulario es invalido');
+      }
+    }
 }
