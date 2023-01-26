@@ -54,6 +54,7 @@ export class InscripcionesListaComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.InscripcionesSubs.unsubscribe();
+    this.subscription.unsubscribe();
   }
 
   eliminarInscripcion(elemento: Inscripciones) {
