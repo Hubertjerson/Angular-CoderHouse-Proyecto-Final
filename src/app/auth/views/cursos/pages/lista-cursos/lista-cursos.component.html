@@ -26,15 +26,15 @@
 
                     <mat-card-actions align="end">
                         <div>
-                            <button mat-icon-button color="primary" (click)="editarCurso(curso)"
+                            <button mat-icon-button color="warn" (click)="editarCurso(curso)"
                                 *ngIf="sesion.usuarioActivo?.admin">
                                 <mat-icon>edit</mat-icon>
                             </button>
-                            <button mat-icon-button color="warn" (click)="eliminarCurso(curso)"
+                            <button mat-icon-button color="primary" (click)="eliminarCurso(curso)"
                                 *ngIf="sesion.usuarioActivo?.admin">
                                 <mat-icon>delete</mat-icon>
                             </button>
-                            <button mat-icon-button [routerLink]="'/cursos/'+ curso.id">
+                            <button mat-icon-button color="accent" [routerLink]="'/cursos/'+ curso.id">
                                 <mat-icon>visibility</mat-icon>
                             </button>
                         </div>
