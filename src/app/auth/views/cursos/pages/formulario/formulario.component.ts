@@ -20,6 +20,7 @@ export class FormularioComponent implements OnInit {
   ngOnInit(): void {
     this.formulario = new FormGroup({
       nombreCurso: new FormControl('', [Validators.required]),
+      info: new FormControl('',[Validators.required]),
       comision: new FormControl('', [Validators.required]),
       profesor: new FormControl('', [Validators.required]),
       inicio: new FormControl('', [Validators.required]),
@@ -32,6 +33,7 @@ export class FormularioComponent implements OnInit {
     const curso: Curso = {
       id: Math.round(Math.random() * 1000),
       nombreCurso: this.formulario.value.nombreCurso,
+      info:this.formulario.value.info,
       comision: this.formulario.value.comision,
       fechaInicio: this.formulario.value.inicio,
       fechaFin: this.formulario.value.fin,

@@ -11,13 +11,15 @@ import { CursosEffects } from './store/cursos.effects';
 import { cursosFeatureKey, reducer } from './store/cursos.reducer';
 import { MiMaterialModule } from '../../shared/module/mi-material.module';
 import { PipeModule } from '../../shared/pipes/pipe.module';
+import { DetalleCursoComponent } from './pages/detalle-curso/detalle-curso.component';
 
 
 @NgModule({
   declarations: [
     FormularioComponent,
     ListaCursosComponent,
-    EditarCursoComponent
+    EditarCursoComponent,
+    DetalleCursoComponent
   ],
   imports: [
     CommonModule,

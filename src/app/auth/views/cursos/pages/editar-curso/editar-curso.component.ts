@@ -29,6 +29,7 @@ export class EditarCursoComponent implements OnInit {
       this.id = parseInt(parametros.get('id') || '');
       this.formulario = new FormGroup({
         nombreCurso: new FormControl(parametros.get('nombreCurso')),
+        info:new FormControl(parametros.get('info')),
         comision: new FormControl(parametros.get('comision')),
         profesor: new FormControl(parametros.get('profesor')),
         inicio: new FormControl(parametros.get('fechaInicio')),
@@ -42,6 +43,7 @@ export class EditarCursoComponent implements OnInit {
     let c: Curso = {
       id: this.id,
       nombreCurso: this.formulario.value.nombreCurso,
+      info:this.formulario.value.info,
       comision: this.formulario.value.comision,
       profesor: this.formulario.value.profesor,
       fechaInicio: this.formulario.value.fechaInicio,

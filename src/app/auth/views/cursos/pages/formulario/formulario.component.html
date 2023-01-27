@@ -16,6 +16,17 @@
                                 class="text-danger">Este campo es requerido</small>
                         </mat-form-field>
                     </div>
+
+                    <div class="mb-2">
+                        <mat-form-field>
+                            <mat-label>Descripcion del Curso</mat-label>
+                            <input matInput formControlName="info">
+                            <small
+                                *ngIf="formulario.get('info')?.errors?.['required'] && formulario.get('info')?.touched"
+                                class="text-danger">Este campo es requerido</small>
+                        </mat-form-field>
+                    </div>
+
                     <div class="mb-2">
                         <mat-form-field>
                             <mat-label>N° de Comision</mat-label>
@@ -59,8 +70,6 @@
                         <mat-form-field>
                             <mat-label>image</mat-label>
                             <input matInput formControlName="img">
-                            <small *ngIf="formulario.get('img')?.errors?.['required'] && formulario.get('img')?.touched"
-                                class="text-danger">Este campo es requerido</small>
                         </mat-form-field>
                     </div>
 
